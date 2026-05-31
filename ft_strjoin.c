@@ -27,15 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s3 = (char *)malloc(s1_len + s2_len + 1);
 	if (s3 == NULL)
 		return (NULL);
-	ft_strlcpy (s3, s1, s1_len + 1);
-	i = s1_len;
-	j = 0;
-	while (s2[j] != '\0')
-	{
-		s3[i] = s2[j];
-		i++;
-		j++;
-	}
-	s3[i] = '\0';
+	ft_strlcpy(s3, s1, s1_len + 1);
+	ft_strlcat(s3, s2, s1_len + s2_len + 1);
 	return (s3);
 }
