@@ -14,16 +14,27 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char	target;
-	int				i;
+	size_t	i;
+	size_t	s_len;
+	char	target;
 
-	i = ft_strlen(s);
-	target = (unsigned char)c;
-	while (i >= 0)
+	s_len = ft_strlen(s);
+	target = (char)c;
+	if (target == '\0')
 	{
-		if ((unsigned char)s[i] == target)
+		i = s_len;
+		return ((char *)&s[i]);
+	}
+	if (s_len == 0)//controllo se la stringa e' vuota
+		return (NULL);
+	i = s_len - 1;
+	while (1)//loop infinito controllato
+	{
+		if (s[i] == target)
 			return ((char *)&s[i]);
+		if (i == 0)
+			break ;//abbiamo controllato s[0] prima, e qui ci fermiamo prima di underflow
 		i--;
 	}
-	return (NULL);
+	return (NULL);//se non c'e' ricorrenza di c in s
 }
