@@ -25,5 +25,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 			return (0);
 		i++;
 	}
-	return (0);
+	return (0);//serve nel caso hai 2 stringhe uguali, ma "n" piu' corto di loro, oppure in cui i = 0 n = 0 0 < 0 e' falso. Salta tutto il while e va diretto qui
 }
