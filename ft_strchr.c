@@ -14,18 +14,21 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	target;
+	char	target;
 	size_t			i;
 
+	target = (char)c;
+	if (target == '\0')
+	{
+		i = ft_strlen(s);
+		return ((char *)&s[i]);//aritmetica dei puntatori "parti da s e vai avanti di tot caselle", cosi' non si ferma prima del \0. Il cast a char perche' senno' viene fuori un int
+	}
 	i = 0;
-	target = (unsigned char)c;
 	while (s[i] != '\0')
 	{
-		if ((unsigned char)s[i] == target) /* anche "s" va chastato in unsigned char. Per architettura interna, il processore vuole lavorare con int. Quindi, per fare il paragone tra "s" e "target", C prende entrambi i valori e li promuove ad int. "target" e' a posto, ma "s[i]" e' char normale */
-			return ((char *)&s[i]);
+		if (s[i] == target)
+			return ((char *)&s[i]);//perche' e' const, ma la funzione vuole un char*
 		i++;
 	}
-	if (target == '\0')
-		return ((char *)&s[i]);
-	return (NULL);
+	return (NULL);//se non c'e' ricorrenza di c in s
 }
