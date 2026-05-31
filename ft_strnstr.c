@@ -16,22 +16,24 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
+	char	*b;
+	char	*l;
 
-	i = 0;
-	if (little[0] == '\0')
-		return ((char *)big);
-	while (big[i] != '\0' && i < len)
+	j = 0;
+	b = (char *)big;
+	l = (char *)little;
+	if (l[0] == '\0')//se little e' vuota, ritorni big
+		return (b);
+	while (b[j] != '\0' && j < len)//scorri big, ma senza superare il limite
 	{
-		j = 0;
-		while ((i + j) < len && big[i + j] == little[j])
+		i = 0;
+		while ((i + j) < len && b[i + j] == l[i])//confronto carattere per carattere senza superare il limite
 		{
-			j++;
-			if (little[j] == '\0')
-				return ((char *)&big[i]);
-			if (big[i + j] == '\0')
-				break ;
+			if (l[i + 1] == '\0')//Se il carattere successivo di little è il finale, il match è completo
+				return (&b[j]);
+			i++;
 		}
-		i++;
+		j++;//vai avanti in big andando alla lettera successiva
 	}
 	return (NULL);
 }
