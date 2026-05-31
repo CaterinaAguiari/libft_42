@@ -34,7 +34,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if (dst_len == size) //regola del man per cui strlcat returna src_len + dst_len, ma se la len di dst e' = size, returna la lunghezza di quello che dovrebbe venire fuori, meno il \0
 		return (dst_len + src_len);
 	i = dst_len;
-	while (src[i] != '\0' && i < (size - 1)) /*ora scorri src fino al \0 e finche' ci sono caratteri da copiare. Lascia spazio per \0. Ad ogni ciclo incrementa "i"
+	while (src[i] != '\0' && i < (size - 1))//ora scorri src fino al \0 e finche' ci sono caratteri da copiare. Lascia spazio per \0. Ad ogni ciclo incrementa "i"
 	{
 		dst[i] = src[j]; //qui copi src dentro dst
 		i++;
