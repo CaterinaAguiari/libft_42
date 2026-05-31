@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -82,24 +81,4 @@ char	**ft_split(const char *s, char c)
 	}
 	tab[j] = NULL;
 	return (tab);
-}
-
-int	main(void)
-{
-	char	**tab;
-	int		i;
-
-	i = 0;
-	tab = ft_split("ciao come stai oggi", ' ');
-	if (!tab)
-		return (printf("NULL\n"), 1);
-	while (tab[i])
-	{
-		if (!tab[i])
-			break ;
-		printf("%s\n", tab[i]);
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
 }
