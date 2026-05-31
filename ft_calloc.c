@@ -10,20 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t number, size_t size)
 {
-	size_t	total_size;
+	size_t	tot_size;
 	void	*ptr;
 
-	if (nmemb != 0 && size > ((size_t)-1) / nmemb)
+	if (number != 0 && size > ((size_t) - 1) / number)
 		return (NULL);
-	total_size = (nmemb * size);
-	ptr = malloc(total_size);
+	tot_size = (number * size);
+	ptr = malloc(tot_size);
 	if (ptr == NULL)
 		return (NULL);
-	ft_bzero(ptr, total_size);
+	ft_bzero(ptr, tot_size);
 	return (ptr);
 }
