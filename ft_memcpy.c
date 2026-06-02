@@ -6,7 +6,7 @@
 /*   By: caguiari <caguiari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:07:18 by caguiari          #+#    #+#             */
-/*   Updated: 2026/06/01 12:33:58 by caguiari         ###   ########.fr       */
+/*   Updated: 2026/06/02 14:28:20 by caguiari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	s = (const unsigned char *)src;
 	if (dest == NULL && src == NULL)
 		return (dest);
-	while (d[i] != '\0' && i < n)
+	while (i < n)
 	{
 		d[i] = s[i];
 		i++;

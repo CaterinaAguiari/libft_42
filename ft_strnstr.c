@@ -6,7 +6,7 @@
 /*   By: caguiari <caguiari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 12:21:53 by caguiari          #+#    #+#             */
-/*   Updated: 2026/06/01 15:47:51 by caguiari         ###   ########.fr       */
+/*   Updated: 2026/06/01 17:15:33 by caguiari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,12 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (b[j] != '\0' && j < len)
 	{
 		i = 0;
-		while ((i + j) < len && b[i + j] == l[i] && b[i + j])
+		while ((i + j) < len && b[i + j] == l[i])
+		{
+			if (l[i + 1] == '\0')
+				return (&b[j]);
 			i++;
+		}
 		if (l[i] == '\0')
 			return (&b[j]);
 		j++;

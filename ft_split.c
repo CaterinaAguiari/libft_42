@@ -6,7 +6,7 @@
 /*   By: caguiari <caguiari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 11:53:43 by caguiari          #+#    #+#             */
-/*   Updated: 2026/06/01 12:30:44 by caguiari         ###   ########.fr       */
+/*   Updated: 2026/06/02 10:58:14 by caguiari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	ft_free_all(char **tab, int j)
 	free(tab);
 }
 
-static char	*get_word(char const *s, char c, int *i)
+static char	*ft_get_word(char const *s, char c, int *i)
 {
 	int	start;
 
@@ -64,7 +64,7 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	while (s[i])
 	{
-		tab[j] = get_word(s, c, &i);
+		tab[j] = ft_get_word(s, c, &i);
 		if (!tab[j])
 		{
 			if (s[i] == '\0')
